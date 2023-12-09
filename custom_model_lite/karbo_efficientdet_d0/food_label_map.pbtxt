@@ -1,0 +1,25 @@
+item {
+    name: "bihun",
+    id: 1,
+    display_name: "bihun"
+}
+item {
+    name: "mie",
+    id: 2,
+    display_name: "mie"
+}
+item {
+    name: "nasi goreng",
+    id: 3,
+    display_name: "nasi goreng"
+}
+item {
+    name: "nasi putih",
+    id: 4,
+    display_name: "nasi putih"
+}
+item {
+    name: "roti",
+    id: 5,
+    display_name: "roti"
+}

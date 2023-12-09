@@ -1,0 +1,30 @@
+item {
+    name: "bakso",
+    id: 1,
+    display_name: "bakso"
+}
+item {
+    name: "nugget",
+    id: 2,
+    display_name: "nugget"
+}
+item {
+    name: "opor ayam",
+    id: 3,
+    display_name: "opor ayam"
+}
+item {
+    name: "rendang",
+    id: 4,
+    display_name: "rendang"
+}
+item {
+    name: "sosis",
+    id: 5,
+    display_name: "sosis"
+}
+item {
+    name: "udang",
+    id: 6,
+    display_name: "udang"
+}

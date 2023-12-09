@@ -1,0 +1,20 @@
+item {
+    name: "kerupuk",
+    id: 1,
+    display_name: "kerupuk"
+}
+item {
+    name: "tahu",
+    id: 2,
+    display_name: "tahu"
+}
+item {
+    name: "telur",
+    id: 3,
+    display_name: "telur"
+}
+item {
+    name: "tempe",
+    id: 4,
+    display_name: "tempe"
+}

@@ -1,0 +1,25 @@
+item {
+    name: "ayam bakar",
+    id: 1,
+    display_name: "ayam bakar"
+}
+item {
+    name: "ayam goreng",
+    id: 2,
+    display_name: "ayam goreng"
+}
+item {
+    name: "ikan goreng",
+    id: 3,
+    display_name: "ikan goreng"
+}
+item {
+    name: "sate",
+    id: 4,
+    display_name: "sate"
+}
+item {
+    name: "steak",
+    id: 5,
+    display_name: "steak"
+}

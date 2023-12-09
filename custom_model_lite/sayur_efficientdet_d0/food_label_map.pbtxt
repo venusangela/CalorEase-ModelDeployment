@@ -1,0 +1,25 @@
+item {
+    name: "capcay",
+    id: 1,
+    display_name: "capcay"
+}
+item {
+    name: "gado-gado",
+    id: 2,
+    display_name: "gado-gado"
+}
+item {
+    name: "soto",
+    id: 3,
+    display_name: "soto"
+}
+item {
+    name: "terong balado",
+    id: 4,
+    display_name: "terong balado"
+}
+item {
+    name: "tumis kangkung",
+    id: 5,
+    display_name: "tumis kangkung"
+}

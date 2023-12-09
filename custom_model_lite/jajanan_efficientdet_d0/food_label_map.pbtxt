@@ -1,0 +1,25 @@
+item {
+    name: "bakwan",
+    id: 1,
+    display_name: "bakwan"
+}
+item {
+    name: "batagor",
+    id: 2,
+    display_name: "batagor"
+}
+item {
+    name: "bika_ambon",
+    id: 3,
+    display_name: "bika_ambon"
+}
+item {
+    name: "martabak telur",
+    id: 4,
+    display_name: "martabak telur"
+}
+item {
+    name: "pempek",
+    id: 5,
+    display_name: "pempek"
+}
