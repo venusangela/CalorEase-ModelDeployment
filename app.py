@@ -15,7 +15,7 @@ def allowed_image_file(filename):
     return "." in filename and \
         filename.split(".", 1)[1] in app.config["ALLOWED_IMAGE_EXTENSIONS"]
 
-model_cat = [p.split("_efficientdet_d0")[0] for p in os.listdir("custom_model_lite")]
+model_cat = ["daging", "jajanan", "karbo", "lauk", "olahan_daging", "sayur"]
 models = {}
 category_indexs = {}
 threshold = 0.5
