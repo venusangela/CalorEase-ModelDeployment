@@ -6,6 +6,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 from collections import Counter
+import csv
 
 app = Flask(__name__)
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = set(['png', 'jpg', 'jpeg'])
@@ -17,8 +18,12 @@ def allowed_image_file(filename):
 
 model_cat = ["daging", "jajanan", "karbo", "lauk", "olahan_daging", "sayur"]
 models = {}
-category_indexs = {}
-threshold = 0.5
+category_indices = {}
+threshold = {}
+with open("threshold.txt") as th:
+    csvreader = csv.reader(th)
+    for row in csvreader:
+        threshold[row[0]] = float(row[1])
 
 def read_label_file(label_path):
     id_pattern = r'id:\s*(\d+)'
@@ -33,8 +38,11 @@ def read_label_file(label_path):
     return result
 
 for cat in model_cat:
-    models[cat] = tf.saved_model.load(f"custom_model_lite\{cat}_efficientdet_d0\saved_model")
-    category_indexs[cat] = read_label_file(f"custom_model_lite/{cat}_efficientdet_d0/food_label_map.pbtxt")
+    saved_model_path = os.path.join("custom_model_lite", f"{cat}_efficientdet_d0", "saved_model")
+    models[cat] = tf.saved_model.load(saved_model_path)
+    label_map_path = os.path.join("custom_model_lite", f"{cat}_efficientdet_d0", "food_label_map.pbtxt")
+    category_indices[cat] = read_label_file(label_map_path)
+
 
 @app.route("/prediction", methods=['GET', 'POST'])
 def prediction():
@@ -46,7 +54,7 @@ def prediction():
             image_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
 
             # preprocess
-            img_np = np.array(Image.open(image_path))
+            img_np = np.array(Image.open(image_path).convert("RGB"))
             input_tensor = tf.convert_to_tensor(img_np, dtype=tf.uint8)
             input_tensor = input_tensor[tf.newaxis, ...]
             input_tensor = input_tensor[:, :, :, :3]
@@ -57,8 +65,8 @@ def prediction():
                 classes = detections['detection_classes'][0].numpy()
                 scores = detections['detection_scores'][0].numpy()
                 for i in range(len(scores)):
-                    if((scores[i] > threshold) and (scores[i] <= 1.0)):
-                        object_name = category_indexs[cat][classes[i]]['name']
+                    if((scores[i] > threshold[cat]) and (scores[i] <= 1.0)):
+                        object_name = category_indices[cat][classes[i]]['name']
                         obj_detected.append(object_name)
             detections_dict = dict(Counter(obj_detected))
 
