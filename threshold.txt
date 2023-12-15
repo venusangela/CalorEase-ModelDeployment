@@ -1,6 +1,6 @@
-daging,0.5
-jajanan,0.5
-karbo,0.5
-lauk,0.5
-olahan_daging,0.5
-sayur,0.5
+daging,0.7
+jajanan,0.75
+karbo,0.70
+lauk,0.65
+olahan_daging,0.67
+sayur,0.70
